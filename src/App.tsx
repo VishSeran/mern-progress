@@ -2,12 +2,36 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import LoginButton from './LoginButton'
+import LogoutButton from './LogoutButton'
+import HomePage from './HomePage'
+
 
 function App() {
   const [count, setCount] = useState(0)
+  const [logIn, setLogIn] = useState(false);
+
+  const login = () => setLogIn(true);
+  const logout = () => setLogIn(false);
 
   return (
     <>
+      <div>
+        {logIn ? (
+          <div>
+            <HomePage />
+            <LogoutButton logout={logout} />
+          </div>
+
+        ) : (
+          <div>
+              <h1>please click to login</h1>
+              <LoginButton login = {login}/>
+          </div>
+          )
+        }
+      </div>
+
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
