@@ -5,7 +5,7 @@ function LogoutButton (props:any){
                 Logout
             </button>
         </div>
-    )
+    );
 }
 
 export default LogoutButton;
